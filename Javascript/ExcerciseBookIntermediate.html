@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title> Excercise Book - Intermediate </title>
+
+    </head>
+
+    <body>
+
+        <script>
+            //Iteration 3 - FizzBuzz
+            function fizzBuzz(limit, three, five){
+                for(var i=1;i<=limit;i++){
+                    if((i%3)==0 && (i%5)==0){
+                        document.write(i + ": ");
+                        document.write(three + five);
+                        document.write("<br>");
+                    } else if((i%3)==0){
+                        document.write(i + ": ");
+                        document.write(three);
+                        document.write("<br>");
+                    } else if((i%5)==0){
+                        document.write(i + ": ");
+                        document.write(five);
+                        document.write("<br>");
+                    } else{
+                        document.write(i + ": ");
+                        document.write("<br>");
+                    }
+                }
+
+            }
+
+            //fizzBuzz(50, "Lol", "Ha");
+
+            //Iteration 4
+            var count =0;
+            function divideThree(number){
+                
+                for(var i=0;i<number;i++){
+                    document.write("Value of input before: " + number + "<br>");
+                    if(number%3==0){
+                        number = number/3;
+                        
+                    } else{
+                        number--;
+                    }
+                    document.write("Value of input after: " + number + "<br>");
+                    count++;
+                    document.write("Iteration: " + count + "<br>");
+                }
+            }
+
+            divideThree(100);
+
+            //Strings 4
+
+            var word = "";
+            function triplets(string){
+                
+            }
+
+
+        </script>
+
+
+    </body>
+
+</html>

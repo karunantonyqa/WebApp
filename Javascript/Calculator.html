@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> The Awesome Calculator </title>
+    </head>
+
+    <body>
+
+        Number 1:
+        <input type="text" name="inputA" id="input_a">
+        <br>
+        Number 2:
+        <input type="text" name="inputB" id="input_b">
+        <br>
+        <input type="radio" name="operator" value="+"> Add<br>
+        <input type="radio" name="operator" value="-"> Subtract<br>
+        <input type="radio" name="operator" value="x"> Multiply<br>
+        <input type="radio" name="operator" value="/"> Divide<br>
+
+        Answer: <br>
+        <input type="text" name="output" id="calc_output">
+
+        <script>
+            var a = document.getElementById("input_a");
+            var b = document.getElementById("input_b");
+            var c = 0;
+
+            function add(){
+                c = a + b;
+                return c;
+            }
+            function subtract(){
+                c = a - b;
+                return c;
+            }
+            function divide(){
+                c = a / b;
+                return c;
+            }
+            function multiply(){
+                c = a * b;
+                return c;
+            }
+
+
+        </script>
+
+
+
+
+    </body>
+
+
+</html>
