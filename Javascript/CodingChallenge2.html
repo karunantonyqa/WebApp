@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+       
+    </head>
+
+    <body>
+
+        <h2> Coding Challenge 2 </h2>
+
+        Calculate square of number:
+        <br>
+
+        
+        Number: <br>
+        <input type="text" name="Number" id="squareInput">
+        <br>
+        <input type="submit" value="Calculate" id="calculateSquare" onclick="square()">
+        <br>
+        <input type="text" name="Answer" id="squareOutput">
+        
+
+        <script>
+
+            function square(){
+                var squareInput = document.getElementById("squareInput").value;
+                squareInput = squareInput * squareInput;
+                document.getElementById("squareOutput").value = squareInput;
+            }
+
+
+            
+        </script>
+
+
+        
+
+        <br>
+        Create a person:
+        <form id="personCreator">
+            Name:
+            <br>
+            <input type="text" name="PersonName" id="pName">
+            <br>
+            Age:
+            <br>
+            <input type="text" name="PersonAge" id="pAge">
+            <br>
+            Occupation:
+            <br>
+            <input type="text" name="PersonOccupation" id="pOcc">
+            <br>
+            <input type="submit" value="Create Person" id="personSubmit" onclick="Person()">
+            <br>
+            <input type="button" value="Increase Age" id="increaseAge" onclick="increaseAge()">
+            <br>
+            <input type="text" name="OutputPersonName" id="oPPName">
+            <br>
+            <input type="text" name="OutputPersonAge" id="oPPAge">
+            <br>
+            <input type="text" name="OutputPersonOccupation" id="oPPOcc">
+            <br>
+        </form>
+
+
+        <script>
+            function increaseAge(){
+                p1.age =+ 1;
+            }
+
+        </script>
+
+        <script>
+
+            function Person(){
+            var p1 = {};
+            p1.name = document.getElementById("pName").value;
+            p1.age = document.getElementById("pAge").value;
+            p1.occupation = document.getElementById("pOcc").value;
+            document.getElementById("oPPName").value = p1.name.value;
+            document.getElementById("oPPAge").value = p1.age.value;
+            document.getElementById("oPPOcc").value = p1.occupation.value;
+            }
+
+            
+
+        </script>
+
+
+        <br>
+        <br>
+
+        
+        
+        Input A:
+        <input type="text" name="Input A" id="inputA">
+        <br>
+        Input B:
+        <input type="text" name="Input B" id="inputB">
+        <br>
+        <input type="button" value="Sum" id="calculatorSum" onclick="sumCalculator()">
+        <br>
+        <input type="text" name="Sum Display" id="displaySum">
+
+        
+
+        
+        <script>
+            function sumCalculator(){
+                var inputA = Number(document.getElementById("inputA").value);
+                var inputB = Number(document.getElementById("inputB").value);
+                var ans = inputA + inputB;
+                document.getElementById("displaySum").value = ans;
+            }
+            
+        </script>
+
+
+    </body>
+
+</html>
