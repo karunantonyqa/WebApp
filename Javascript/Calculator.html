@@ -13,10 +13,10 @@
         Number 2:
         <input type="text" name="inputB" id="input_b">
         <br>
-        <input type="radio" name="operator" value="+"> Add<br>
-        <input type="radio" name="operator" value="-"> Subtract<br>
-        <input type="radio" name="operator" value="x"> Multiply<br>
-        <input type="radio" name="operator" value="/"> Divide<br>
+        <input type="radio" name="operator" value="+" id="operatorType"> Add<br>
+        <input type="radio" name="operator" value="-" id="operatorType"> Subtract<br>
+        <input type="radio" name="operator" value="x" id="operatorType"> Multiply<br>
+        <input type="radio" name="operator" value="/" id="operatorType"> Divide<br>
 
         Answer: <br>
         <input type="text" name="output" id="calc_output">
@@ -25,6 +25,10 @@
             var a = document.getElementById("input_a");
             var b = document.getElementById("input_b");
             var c = 0;
+
+            if(document.getElementById("")){
+                
+            }
 
             function add(){
                 c = a + b;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> JSON Example 1 </title>
+    </head>
+
+    <body>
+
+        <button type="button">JSON</button>
+
+        <script>
+            var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json';
+            var request = new XMLHttpRequest();
+
+            request.open('GET', requestURL);
+            request.responseType = 'json';
+            request.send();
+
+            var superHeroString = "";
+            var superHeroParse = "";
+            
+            var sName = "";
+            var sAge = "";
+            var sSecIden = "";
+            var powers = "";
+            
+            request.onload = function(){
+                var superHeroes = request.response;
+
+                superHeroString = JSON.stringify(superHeroes);
+                superHeroParse = JSON.parse(superHeroString);
+                console.log(superHeroParse);
+                
+                document.write("Squad Name: " + superHeroParse.squadName + "<br> Home Town: " + 
+                superHeroParse.homeTown + "<br> Year Formed: " + superHeroParse.formed + "<br> Secret Base: " + 
+                superHeroParse.secretBase + "<br> Active: " + superHeroParse.active + "<br><br>");
+
+                for(var x in superHeroParse.members){
+                    
+                    sName = superHeroParse.members[x].name;
+                    sAge = superHeroParse.members[x].age;
+                    sSecIden = superHeroParse.members[x].secretIdentity;
+                
+                    
+                    
+
+                    for(var y in superHeroParse.members[x].powers){
+                        if(y == (superHeroParse.members[x])){
+                            powers = "" + powers + " " + superHeroParse.members[x].powers[y] + ".";
+                        }else{
+                            powers = "" + powers + " " + superHeroParse.members[x].powers[y] + ",";
+                        }
+
+                    }
+                    document.write("Name: " + sName + "<br> Age: " + sAge + "<br> Secret Identity: " + sSecIden);
+                    document.write("<br> Powers: " + powers + "<br><br>");
+                }                
+
+            }
+
+        </script>
+
+    </body>
+</html>

@@ -9,6 +9,14 @@
 
     <body>
 
+        <div id="para1">
+            <p id = "p1"> Hello this is some work. </p>
+            <p id = "p2"> Here is a sentence </p>
+
+            
+
+        </div>
+
         <script>
             //Iteration 3 - FizzBuzz
             function fizzBuzz(limit, three, five){
@@ -58,10 +66,51 @@
             //Strings 4
 
             var word = "";
-            function triplets(string){
+            var count = 0;
+            function triplets(s){
+
+                for(var i=0;i<s.length;i++){
+                    //if(){
+
+                    //}
+                }
                 
             }
 
+
+            //DOM 1
+            var para = "";
+            var node = "";
+            function createPara(){
+                para = document.createElement("p");
+                node = document.createTextNode("This new");
+                para.appendChild(node);
+
+                var element = document.getElementById("para1");
+                var child = document.getElementById("p1");
+                element.insertBefore(para,child);
+            }
+
+            var changeText = "";
+            function changeParaText(text){
+                para.removeChild(node);
+                changeText = text;
+                node = document.createTextNode(changeText);
+                para.appendChild(node);
+            }
+
+            function deletePara(){
+                para.removeChild(node);
+            }
+
+            createPara();
+
+            changeParaText("This new new");
+
+            deletePara();
+
+
+            //JSON 1
 
         </script>
 
