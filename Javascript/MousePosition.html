@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Mouse Pointer</title>
     </head>
 
     <body>
+        <br>
+        <br>
+        <br>
+
+        <input type="text" name="textArea" id="mouseText">
+        <br>
+        <button type="button" onclick="">Change cursor</button>
+
+        <script>
+            var text = "";
+            text = document.getElementById("mouseText").focus();
+            text = document.getElementById("mouseText").select();
+            document.body.style.cursor = '';
+
+            
+
+        </script>
+
     </body>
 </html>

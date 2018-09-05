@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JSON Task 2 </title>
+
+    </head>
+
+    <body>
+
+        Search by Name: <br>
+        <input type="text" name="kingName" id="kingNameID"> <br>
+        <button type="button" onclick="searchKing()">Search</button><br>
+
+        Search by City: <br>
+        <input type="text" name="kingName" id="kingCityID"> <br>
+        <button type="button" onclick="searchKing()">Search</button><br>
+
+        Search by House: <br>
+        <input type="text" name="kingName" id="kingHouseID"> <br>
+        <button type="button" onclick="searchKing()">Search</button><br>
+
+        Search by Year of Reign: <br>
+        <input type="text" name="kingName" id="kingReignID"> <br>
+        <button type="button" onclick="searchKing()">Search</button><br>
+        
+
+
+        <script>
+            var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json';
+            var request = new XMLHttpRequest();
+
+            request.open('GET', requestURL);
+            request.responseType = 'json';
+            request.send();
+
+            var kingsString = "";
+            var kingsParse = "";
+            
+            request.onload = function(){
+                var kings = request.response;
+
+                kingsString = JSON.stringify(kings);
+                kingsParse = JSON.parse(kingsString);
+
+                for(var x in kingsParse){
+                    console.log(kingsParse[x]);
+                    //document.write("King Name: " + kingsParse[x].nm + "<br>");
+                }
+                
+            }
+
+            var kName = "";
+            var kCity = "";
+            var kHouse = "";
+            var kYears = "";
+            function searchKing(){
+                var results = [];
+                var searchField = "nm";
+                var searchValName = document.getElementById("kingNameID").value;
+                var searchValCity = document.getElementById("kingCityID").value;
+                var searchValHouse = document.getElementById("kingHouseID").value;
+                var searchValYear = document.getElementById("kingReignID").value;
+                //document.write(searchVal);
+
+
+                for(var i in kingsParse){
+                    kName = kingsParse[i].nm;
+                    kCity = kingsParse[i].cty;
+                    kHouse = kingsParse[i].hse;
+                    kYears = kingsParse[i].yrs;
+
+
+                    //document.write(kName);
+                    //console.log(kName);
+                    if(kName==searchValName){                        
+                        document.write("King Name: " + kingsParse[i].nm + "<br> King City: " + kingsParse[i].cty + "<br> King House: " + kingsParse[i].hse + "<br> King Reign: " + kingsParse[i].yrs + "<br><br>");
+                    }else if(kCity==searchValCity){                        
+                        document.write("King Name: " + kingsParse[i].nm + "<br> King City: " + kingsParse[i].cty + "<br> King House: " + kingsParse[i].hse + "<br> King Reign: " + kingsParse[i].yrs + "<br><br>");
+                    }else if(kHouse==searchValHouse){                        
+                        document.write("King Name: " + kingsParse[i].nm + "<br> King City: " + kingsParse[i].cty + "<br> King House: " + kingsParse[i].hse + "<br> King Reign: " + kingsParse[i].yrs + "<br><br>");
+                    }else if(kYears==searchValYear) {                        
+                        document.write("King Name: " + kingsParse[i].nm + "<br> King City: " + kingsParse[i].cty + "<br> King House: " + kingsParse[i].hse + "<br> King Reign: " + kingsParse[i].yrs + "<br><br>");
+                    }
+                }
+            }
+        </script>
+
+    </body>
+</html>
