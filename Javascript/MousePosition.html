@@ -4,24 +4,43 @@
         <title>Mouse Pointer</title>
     </head>
 
-    <body>
-        <br>
-        <br>
-        <br>
+    
+        <input type="text" name="textArea" id="mouseText"
+        style="position:absolute;top:50;left:50"
+        onmouseleave="mouseout()"></input>
 
-        <input type="text" name="textArea" id="mouseText">
+        <span style="position:absolute;top:100;left:200" id="SP">The Shafeeq</span>
+        
         <br>
         <button type="button" onclick="">Change cursor</button>
 
         <script>
             var text = "";
-            text = document.getElementById("mouseText").focus();
-            text = document.getElementById("mouseText").select();
-            document.body.style.cursor = '';
+            var FS = 10;
+            var cursorString = "";
 
+            function moving(){
+                text = window.document.getElementById("mouseText");
+                cursorString = window.document.getElementById("SP");
+                cursorString.style.top=window.event.clientY;
+                console.log(cursorString.style.top);
+                cursorString.style.left=window.event.clientX;
+                if(event.ctrlKey){FS++;}
+                if(event.altKey){FS--;}
+                cursorString.style.fontSize=FS;
+            }
             
+            function mouseout(){
+                if(text.value!=""){
+                    cursorString.innerHTML = text.value;
+                }
+            }
+
+        
+
 
         </script>
+    <body onmousemove="moving()"></body>
 
-    </body>
+    
 </html>

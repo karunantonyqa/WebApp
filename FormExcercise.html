@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Forms</title>
+    </head>
+
+    <body>
+
+        <form name="myForm" id="formID" onsubmit="return validateForm()">
+            Name: <br>
+            <input type="text" id="nameBox"><br>
+            D.O.B: <br>
+            <input type="date" id="dobBox" value="2018-09-05"><br>
+            Post Code: <br>
+            <input type="text" id="pcBox"><br>
+            Email: <br>
+            <input type="text" id="emailBox"><br>
+
+            <input type="submit" value="Submit" onsubmit="validateForm()">
+
+        </form>
+
+        <script>
+
+            function validateForm(){
+
+                var nameElement = document.getElementById("nameBox");
+                var dobElement = document.getElementById("dobBox");
+                var pcElement = document.getElementById("pcBox");
+                var emailElement = document.getElementById("emailBox");
+                var alphaExp = /^[a-zA-Z]+$/;
+                var emailAlphaExp = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/;
+                var pcMax = 7;
+                var today = new Date();
+                var dd= today.getDate();
+                var mm = today.getMonth()+1;
+                var yyyy = today.getFullYear();
+                today = yyyy + "/" + mm + "/" + dd;
+
+                
+                //Check is name field uses illegal characters
+                if(!(nameElement.value.match(alphaExp))){
+                    console.log("Tried to use illegal character");
+                    return false;
+                }
+
+                if(!(emailElement.value.match(emailAlphaExp))){
+                    console.log("Tried to use illegal character in email");
+                    return false;
+                }
+
+                //Check if fields are empty
+
+                if(nameElement.value == ""){
+                    console.log("Name Field is empty");
+                    return false;
+                }
+
+                if(dobElement.value == ""){
+                    console.log("DOB Field is empty");
+                    return false;
+                }
+
+                if(pcElement.value == ""){
+                    console.log("Post code Field is empty");
+                    return false;
+                }
+
+                if(emailElement.value == ""){
+                    console.log("Email Field is empty");
+                    return false;
+                }
+
+                //Check post code is shorter than 7 characters
+                if(pcElement.value.length > pcMax){
+                    console.log("Post code Field is too long");
+                    return false;
+                }
+
+                if(document.getElementById("dobBox").value > today){
+                    console.log("Illegal date");
+                    return false;
+                }
+
+                
+
+                
+                
+            }
+
+            validateForm();
+            //console.log(document.getElementById("dobBox").value);
+
+        
+        </script>
+
+    </body>
+
+</html>
